@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<style>
+div {text-align: center;}
+button {font-size: 50px;}
+body {background-color: black;}
+p {color: white;
+   font-size: 20px;
+   text-align: center;
+}
+h1 {color: white;
+    text-align: center;
+}
+img {
+   border-radius: 8px;
+   width: 80%;
+   margin: auto;
+   display: block;
+}
+</style>
+<body>
+<div>
+  <br><br><button id="btn" type="button" onclick="toggleInterval()">Start/Stop Flow Drill!</button><br><br>
+  <button onclick="offenseInterval()">Offensive Combos</button>
+</div>
+  <h1>Mayweather Mittwork For Shadowboxing</h1>
+  <img src="https://e0.365dm.com/20/03/768x432/skysports-roger-mayweather_4949700.jpg?20200317193728">
+  <p>ROLL - Cross, Lead Hook, Cross<br><br>
+     CATCH - Cross, Lead Hook, Cross<br><br>
+     PULL - Cross, Lead Hook, Cross<br><br>
+     SLIP - Cross, Lead Hook, Cross<br><br>
+     SHOULDER - Cross, Lead Hook, Cross<br><br>
+     BLOCK -  Rear Uppercut, Cross, Lead Hook, Cross<br><br>
+     TOP (Block Left Hook) - Lead Hook, Cross<br><br>
+     LEFT-BLOCK - Lead Uppercut, Lead Hook, Cross<br><br>
+     TOUCH - Cross, Roll, Cross, Lead Hook, Cross<br><br>
+     HOOK - Cross, Roll, Cross, Lead Hook, Cross<br><br>
+     TRIPPLE (Catch/Shoulder, Top Block, Catch/Shoulder) - Cross, Lead Hook, Cross<br><br>
+     BODY (Left-Block, Block) - Rear Uppercut, Lead Uppercut, Lead Hook, Cross
+  </p>
+  <p id="randomWord"></p>
+</body>
+</html>
+
+<script>
+var intervalId; 
+function toggleInterval() {
+    if (!intervalId) { 
+      intervalId = setInterval(function(){randomizeFunction();}, 1400); 
+    } else { 
+      clearInterval(intervalId); 
+      intervalId = null; 
+    } 
+}
+
+var interval; 
+function offenseInterval() {
+    if (!interval) { 
+      interval = setInterval(function(){secondInterval();}, 1900); 
+    } else { 
+      clearInterval(interval); 
+      interval = null; 
+    } 
+}
+
+var myList = ["Roll", "Catch", "Pull", "Slip", "Shoulder", "Block", "Top", "Left-Block", "Tripple", "Body", "Base", "Double-Slip", "1 2 Roll", "Double-Hook", "Touch", "Hook"];
+
+var aList = ["3 Cross", "Touch", "Hook", "Double-Hook", "Liver"]
+
+var bList = ["Body", "Block", "Left-Block"]
+
+var sList = ["Slip", "Double-Slip", "Tripple-Slip", "1 2 Roll"]
+
+var hList = ["Roll", "Double Roll", "Pull"]
+
+var cList = ["Catch", "Shoulder", "Top"]
+
+randomizeFunction()
+
+function randomizeFunction() {
+    let rand = Math.floor(Math.random() * (myList.length));
+    console.log(rand);
+    let speech = new SpeechSynthesisUtterance(myList[rand]);
+    speech.rate = 1.5;
+    window.speechSynthesis.speak(speech); 
+}
+
+function secondInterval() {
+    let rand = Math.floor(Math.random() * (aList.length));
+    console.log(rand);
+    let speech = new SpeechSynthesisUtterance(aList[rand]);
+    speech.rate = 1.5;
+    window.speechSynthesis.speak(speech);
+}
+</script>
